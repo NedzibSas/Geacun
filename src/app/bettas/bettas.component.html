@@ -1,0 +1,18 @@
+<div class= "btn-group">
+    <div *ngFor="let betta of bettas">
+        <div class="card div-padder" style="width: 18rem;" >
+            <img src={{betta.img}} class="card-img-top">
+            <div class="card-body">
+            <h5 class="card-title">{{betta.subtype}}</h5>
+            <p class="card-text">
+                Ubicación: {{betta.ubication}} <br>
+                Sub Especie: {{betta.subtype}} <br>
+                Género: {{betta.gender}} <br>
+                Nacimiento: {{betta.birth}} <br>
+                #Reproducciones: {{betta.rep}}
+            </p>
+            <a href="#" class="btn btn-primary">Mas información</a>
+            </div>
+        </div>
+    </div>
+</div>

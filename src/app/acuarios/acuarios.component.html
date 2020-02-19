@@ -1,0 +1,29 @@
+<h2>Control de Acuarios</h2>
+<div>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Especies</th>
+        <th scope="col"># Peces</th>
+        <th scope="col">Etapa</th>
+        <th scope="col">Ubicación</th>
+        <th scope="col">Temperatura</th>
+        <th scope="col">% Suciedad</th>
+        <th scope="col">Horas de Comida</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let aquarium of aquariums">
+        <th scope="row">{{aquarium.id}}</th>
+        <td>{{aquarium.subtype}}</td>
+        <td>{{aquarium.fish}}</td>
+        <td>{{aquarium.age}}</td>
+        <td>{{aquarium.ubication}}</td>
+        <td>{{aquarium.temperature}}</td>
+        <td>{{aquarium.dirt}}</td>
+        <td>{{aquarium.food}}</td>
+      </tr>
+    </tbody>
+</table> 
+</div>
