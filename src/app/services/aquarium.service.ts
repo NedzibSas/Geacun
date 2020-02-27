@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { AQUARIUMS } from '../services/aquarium.json';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { aquarium } from '../models/aquarium';
 
 @Injectable({
@@ -8,10 +7,29 @@ import { aquarium } from '../models/aquarium';
 })
 export class AquariumsService {
 
-  constructor() { }
+  addKeyToObject = _ => {
+    const object = _.payload.val()
+    object.key = _.payload.key;
+    return object;
+  }
 
-  getItems(): Observable<aquarium[]>{
-    return of(AQUARIUMS);
+  constructor(private firestore: AngularFirestore){
+  }
+
+  getAquarium() {
+    return this.firestore.collection('acuarios').snapshotChanges();
+  }
+
+  createAquarium(aquarium: aquarium){
+    return this.firestore.collection('acuarios').add(aquarium);
+  }
+
+  updateAquarium(aquarium: aquarium){
+    this.firestore.doc('acuarios/' + aquarium.id).update(aquarium);
+  }
+
+  deleteAquarium(aquariumID: string){
+    this.firestore.doc('acuarios/' + aquariumID).delete();
   }
 
 }

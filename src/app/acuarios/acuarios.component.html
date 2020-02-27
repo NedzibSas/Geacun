@@ -3,14 +3,16 @@
 <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">Id</th>
         <th scope="col">Especies</th>
         <th scope="col"># Peces</th>
         <th scope="col">Etapa</th>
         <th scope="col">Ubicación</th>
         <th scope="col">Temperatura</th>
-        <th scope="col">% Suciedad</th>
+        <th scope="col">Volumen (Litros)</th>
+        <th scope="col">pH</th>
         <th scope="col">Horas de Comida</th>
+        <th scope="col">Eliminar</th>
       </tr>
     </thead>
     <tbody>
@@ -20,10 +22,75 @@
         <td>{{aquarium.fish}}</td>
         <td>{{aquarium.age}}</td>
         <td>{{aquarium.ubication}}</td>
-        <td>{{aquarium.temperature}}</td>
-        <td>{{aquarium.dirt}}</td>
+        <td>{{aquarium.temperature}} °C</td>
+        <td>{{aquarium.lvl}} L</td>
+        <td>{{aquarium.ph}}</td>
         <td>{{aquarium.food}}</td>
+        <td>
+          <button (click)="delete(aquarium.id)" class="btn btn-danger">Eliminar</button>
+      </td>
       </tr>
     </tbody>
 </table> 
+</div>
+
+
+
+<div class="ml-4">
+<p>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Nuevo Acuario
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+
+  <label>
+    Especie:
+    <input type="text" class="form-control" placeholder="Especie" [formControl]="subtype">
+  </label>
+  
+
+  <label class="ml-4">
+    # Peces:
+    <input type="text" class="form-control" placeholder="Numero de peces" [formControl]="fish">
+  </label>
+  <br>
+
+  <label>
+    Etapa:
+    <input type="text" class="form-control" placeholder="Etapa" [formControl]="age">
+  </label>
+  
+
+  <label class="ml-4">
+    Ubicación:
+    <input type="text" class="form-control" placeholder="Ubicación" [formControl]="ubication">
+  </label>
+  <br>
+
+  <label>
+    Temperatura:
+    <input type="text" class="form-control" placeholder="Temperatura" [formControl]="temperature">
+  </label>
+
+  <label class="ml-4">
+    Volumen:
+    <input type="text" class="form-control" placeholder="Numero de litros" [formControl]="lvl">
+  </label>
+  <br>
+
+  <label>
+    pH:
+    <input type="text" class="form-control" placeholder="pH" [formControl]="ph">
+  </label>
+
+  <label class="ml-4">
+    Horario:
+    <input type="text" class="form-control" placeholder="HH:MM - HH:MM" [formControl]="food">
+  </label>
+
+  <br>
+  <button type="button" class="btn btn-primary mt-3" (click)="create()">Crear</button>
+  <br>
+</div>
 </div>

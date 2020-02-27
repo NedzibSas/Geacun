@@ -1,10 +1,11 @@
 export class aquarium {
-    id: number;
+    id: string;
     ubication: string;
     fish: number;
     temperature: number;
-    dirt: number;
+    ph: number;
     food: string;
     subtype: string;
     age: string;
+    lvl: number;
 }
